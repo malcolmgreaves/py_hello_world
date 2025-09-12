@@ -6,7 +6,14 @@ def main(wait_s) -> None:
     
     if wait_s is not None and isinstance(wait_s, (float, int)) and wait_s >= 0:
         print(f"Waiting for {wait_s} seconds")
-        time.sleep(wait_s)
+        if wait_s < 1:
+            time.sleep(wait_s)
+        else:
+            while wait_s > 0:
+                print("...")
+                wait_s -= 1
+                time.sleep(1)
+
 
 if __name__ == "__main__":
     if len(sys.argv) >= 2:
@@ -20,5 +27,5 @@ if __name__ == "__main__":
                 print(f'UNRECOGNIZED wait_s: "{a}" -- no waiting!')
                 wait_s = None
     else:
-        wait_s = None
+        wait_s = 60
     main(wait_s)
