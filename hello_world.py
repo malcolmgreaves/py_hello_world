@@ -21,13 +21,15 @@ def main(wait_s) -> None:
         wait_s = convert(wait_s)
 
     if wait_s is not None and isinstance(wait_s, (float, int)) and wait_s >= 0:
-        print(f"Waiting for {wait_s} seconds")
+        print(f"Waiting for {wait_s} seconds...")
         if wait_s < 1:
             time.sleep(wait_s)
         else:
+            i = 1
             while wait_s > 0:
-                print("...")
+                print(f"\t[{i}] hello world :) ({wait_s}s remaining)")
                 wait_s -= 1
+                i += 1
                 time.sleep(1)
 
 
