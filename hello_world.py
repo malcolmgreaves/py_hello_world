@@ -1,7 +1,7 @@
 import sys
 import time
 
-def main(wait_s = None) -> None:
+def main(wait_s) -> None:
     print("Hello world!")
     
     if wait_s is not None and isinstance(wait_s, (float, int)) and wait_s >= 0:
