@@ -1,7 +1,7 @@
 import os
 import time
 
-if __name__ == "__main__":
+def main() -> None:
     print("Hello world!")
     
     wait_s = int(os.environ.get("WAIT_S", "0"))
@@ -9,3 +9,5 @@ if __name__ == "__main__":
     
     time.sleep(wait_s)
 
+if __name__ == "__main__":
+    main()
