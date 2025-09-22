@@ -2,7 +2,7 @@ import sys
 import time
 
 
-def convert(a):
+def convert(a: str) -> float | int:
     try:
         wait_s = int(a)
     except:
@@ -14,7 +14,7 @@ def convert(a):
     return wait_s
 
 
-def main(wait_s) -> None:
+def main(wait_s: float | int) -> dict[str, float | int]:
     print("Hello world!")
     
     if wait_s is not None and not isinstance(wait_s, (float, int)):
@@ -31,6 +31,7 @@ def main(wait_s) -> None:
                 wait_s -= 1
                 i += 1
                 time.sleep(1)
+    return {"wait_s": wait_s}
 
 
 if __name__ == "__main__":
