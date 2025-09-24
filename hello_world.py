@@ -34,9 +34,29 @@ def main(wait_s: float | int) -> dict[str, float | int]:
     return {"wait_s": wait_s}
 
 
+def say(wait_s) -> None:
+    import cowsay
+    message = "Hello world :)"
+    n = len(cowsay.characters.CHARS)
+    for i, character in enumerate(cowsay.characters.CHARS.keys()):
+        say = getattr(cowsay, character) 
+        say(f'[{i+1}/{n}] {character} says: "{message}"')
+        time.sleep(wait_s)
+
+
+
 if __name__ == "__main__":
-    if len(sys.argv) >= 2:
+    if len(sys.argv) >= 3:
         wait_s = convert(sys.argv[1])
+        is_cowsay = sys.argv[2].lower() in ['y', '1', 'yes', 'true']
+    elif len(sys.argv) >= 2:
+        wait_s = convert(sys.argv[1])
+        is_cowsay = False
     else:
         wait_s = 60
-    main(wait_s)
+        is_cowsay = False
+
+    if is_cowsay:
+        say(wait_s)
+    else:
+        main(wait_s)
