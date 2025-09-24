@@ -34,7 +34,7 @@ def main(wait_s: float | int) -> dict[str, float | int]:
     return {"wait_s": wait_s}
 
 
-def say(wait_s) -> None:
+def say(wait_s: float | int) -> dict[str, float | int | list[str]]:
     import cowsay
     message = "Hello world :)"
     n = len(cowsay.characters.CHARS)
@@ -42,6 +42,7 @@ def say(wait_s) -> None:
         say = getattr(cowsay, character) 
         say(f'[{i+1}/{n}] {character} says: "{message}"')
         time.sleep(wait_s)
+    return {"wait_s": wait_s, "characters": list(cowsay.characters.CHARS.keys())}
 
 
 
