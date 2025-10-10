@@ -42,6 +42,13 @@ def main_quick():
     d['a_tag'] = "has something here please pick up!"
     return d
 
+def run_daft():
+    import daft
+    df = daft.from_pylist([{"a": 1, "b": "hello"}, {"a": 2, "b": "hellohello"}, {"a": 3, "b": "hellohello"}])
+    res = df.write_parquet("./local_files_for_demo")
+    return res
+
+
 def say(wait_s: float | int) -> dict[str, float | int | list[str]]:
     import cowsay
     message = "Hello world :)"
