@@ -37,6 +37,8 @@ def main(wait_s: float | int) -> dict[str, float | int]:
 def main_default() -> dict[str, float | int]:
     return main(wait_s=60)
 
+def main_quick():
+    return main(wait_s=5)
 
 def say(wait_s: float | int) -> dict[str, float | int | list[str]]:
     import cowsay
