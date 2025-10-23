@@ -16,6 +16,8 @@ def convert(a: str) -> float | int:
 
 def main(wait_s: float | int) -> dict[str, float | int]:
     print("Hello world!")
+
+    original_wait_s = wait_s
     
     if wait_s is not None and not isinstance(wait_s, (float, int)):
         wait_s = convert(wait_s)
@@ -31,7 +33,7 @@ def main(wait_s: float | int) -> dict[str, float | int]:
                 wait_s -= 1
                 i += 1
                 time.sleep(1)
-    return {"wait_s": wait_s}
+    return {"wait_s": original_wait_s}
 
 def main_long() -> dict[str, float | int]:
     return main(wait_s=360)
