@@ -33,6 +33,8 @@ def main(wait_s: float | int) -> dict[str, float | int]:
                 time.sleep(1)
     return {"wait_s": wait_s}
 
+def main_long() -> dict[str, float | int]:
+    return main(wait_s=360)
 
 def main_default() -> dict[str, float | int]:
     return main(wait_s=60)
